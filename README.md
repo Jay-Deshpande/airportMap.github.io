@@ -15,11 +15,11 @@ in the USA, so it is the darkest shade. South Dakota has relatively few airports
 The program loads airport geodata from geojson files and places location markers on the map. When an airport marker is clicked, the marker bounces and shows a popup with
 the airport's name. The program also visualizes the number of airports per state as a Choropleth map.
 
-*setColor(density)
+* setColor(density)
   -\@param density : state airport count
   -bins states based on their number of airports
   -assigns colors to bins
-*style(feature)
+* style(feature)
   -\@param feature : state polygon feature
   -appropriately styles each state to create Choropleth Map
 
