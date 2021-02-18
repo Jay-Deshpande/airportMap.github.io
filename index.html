@@ -95,8 +95,6 @@
 
     // Build colorset
     var colors = chroma.scale('Set1').mode('lch').colors(2);
-
-    // dynamically append style classes to this page. This style classes will be used for colorize the markers.
     for (i = 0; i < 2; i++) {
         $('head').append($("<style> .marker-color-" + (i + 1).toString() + " { color: " + colors[i] + "; font-size: 15px; text-shadow: 0 0 3px #ffffff;} </style>"));
     }
@@ -114,7 +112,7 @@
         return colors[id];
     }
 
-    // Set style function that sets fill color.md property equal to cell tower density
+    // Set style function that sets fill color.md property equal to airport density
     function style(feature) {
         return {
             fillColor: setColor(feature.properties.count),
@@ -132,31 +130,28 @@
         style: style
     }).addTo(mymap);
 
-    // 9. Create Leaflet Control Object for Legend
+    // Create Leaflet Control Object for Legend
     var legend = L.control({position: 'topright'});
 
-    // 10. Function that runs when legend is added to map
+    // Function that runs when legend is added to map
     legend.onAdd = function () {
-
         // Create Div Element and Populate it with HTML
         var div = L.DomUtil.create('div', 'legend');
         div.innerHTML += '<b>Number of Airports Per State</b><br />';
-        div.innerHTML += '<i style="background: ' + colors[4] + '; opacity: 0.5"></i><p> 61+ </p>';
-        div.innerHTML += '<i style="background: ' + colors[3] + '; opacity: 0.5"></i><p> 45-60 </p>';
-        div.innerHTML += '<i style="background: ' + colors[2] + '; opacity: 0.5"></i><p> 31-45 </p>';
-        div.innerHTML += '<i style="background: ' + colors[1] + '; opacity: 0.5"></i><p> 16-30 </p>';
-        div.innerHTML += '<i style="background: ' + colors[0] + '; opacity: 0.5"></i><p> 0-15 </p>';
+        div.innerHTML += '<i style="background: ' + colors[4] + '; opacity: 0.6"></i><p> 61+ </p>';
+        div.innerHTML += '<i style="background: ' + colors[3] + '; opacity: 0.6"></i><p> 45-60 </p>';
+        div.innerHTML += '<i style="background: ' + colors[2] + '; opacity: 0.6"></i><p> 31-45 </p>';
+        div.innerHTML += '<i style="background: ' + colors[1] + '; opacity: 0.6"></i><p> 16-30 </p>';
+        div.innerHTML += '<i style="background: ' + colors[0] + '; opacity: 0.6"></i><p> 0-15 </p>';
         div.innerHTML += '<hr><b>Airport Type<b><br />';
         div.innerHTML += '<i class="fa fa-plane marker-color-1"></i><p>Control Tower </p>';
         div.innerHTML += '<i class="fa fa-plane marker-color-2"></i><p>No Control Tower</p>';
         // Return the Legend div containing the HTML content
         return div;
     };
-
-    // 11. Add a legend to map
     legend.addTo(mymap);
 
-    // 12. Add a scale bar to map
+    // Add a scale bar to map
     L.control.scale({position: 'bottomleft'}).addTo(mymap);
 
 </script>
