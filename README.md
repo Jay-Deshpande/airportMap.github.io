@@ -4,11 +4,16 @@ Choropleth Map of Airports in the United States.
 
 ## Introduction
 
-This visualiztion shows where airports are located in every US State.
-Red plane icons signify airports with a control tower. Grey plane Icons
-signify airports without control towers.
+This visualization shows where airports are located in every US State.
+Red plane icons signify airports with a control tower. Grey plane icons
+signify airports without control towers. States are colored according
+to the number of airports they have. For example, Alaska has the most airports
+in the USA, so it is the darkest shade. South Dakota has relatively few airports so it is the lightest shade. Interestingly, most of Alaska's airports do not have control towers. These are likely small, remote landing strips. If we ignore airports without control towers, then California, Texas, and Florida will be the top states.
 
 ## Primary Functions
+
+The program loads airport geodata from geojson files and places location markers on the map. When an airport marker is clicked, the marker bounces and shows a popup with
+the airport's name. The program also visualizes the number of airports per state as a Choropleth map.
 
 ## Libraries
 
